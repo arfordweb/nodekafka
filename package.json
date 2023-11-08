@@ -18,9 +18,10 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "producer": "node build/producer.js",
-    "consumer": "node build/consumer.js",
+    "producer": "nodemon -L build/producer.js",
+    "consumer": "nodemon -L build/consumer.js",
     "build": "tsc",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "start": "nodemon -L build/index.js"
   }
 }

@@ -131,3 +131,6 @@ dist
 
 # typescript build
 build/
+
+# kafka files
+bitnami

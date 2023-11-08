@@ -12,10 +12,13 @@ const chance = new Chance();
 
 const producer = kafka.producer();
 
-let partition = 0;
+export const runProducer = async (): Promise<void> => {
+  let partition = 0;
 
-const run = async (): Promise<void> => {
-  // Producing
+  // wait for kafka to start; TODO remove and add retry if not able to connect
+  await sleep(5000);
+
+  // produce!
   await producer.connect();
   while (true) {
     const value = chance.animal();
@@ -38,5 +41,3 @@ const run = async (): Promise<void> => {
     await sleep(SEND_INTERVAL);
   }
 };
-
-run().catch(console.error);
